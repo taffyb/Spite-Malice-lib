@@ -1,0 +1,17 @@
+Step 6: Publish to npm
+
+To publish your first version to npm run:
+
+tsc
+npm publish
+
+Now you're all set to go! Consume your library anywhere you want by running:
+
+npm install --save hwrld
+
+and consume it using
+
+import {sayHello} from 'hwrld'
+sayHello();
+
+For subsequent releases, use the semvar principle. When you make a patch / bugfix to your library, you can run npm version patch, for new features run npm version minor and on breaking changes of your api run npm version major.
