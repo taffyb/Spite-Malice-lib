@@ -97,17 +97,13 @@ export class Game implements IGameModel{
                           [],[],[],[],    /*STACK*/
                           [],             /*DECK*/
                           []];            /*RECYCLE*/
-    stateEmitter;
 
     // convienience 
     deck:ICardModel[]=this.cards[PositionsEnum.DECK];
     recyclePile:ICardModel[]=this.cards[PositionsEnum.RECYCLE];
     
     constructor(){}
-//    onStateChange$():Observable<GameStatesEnum>{
-//        const o=Observable.create(e => this.stateEmitter = e);
-//        return o;
-//    }
+
     getCards(position:PositionsEnum):ICardModel[]{
         const cards=this.cards[position];
         return cards;
@@ -118,14 +114,6 @@ export class Game implements IGameModel{
         this.addCard(card);
         if(move.type!=MoveTypesEnum.DEALER){
             this.removeCard(move.from);
-        }
-        if(this.cards[PositionsEnum.PLAYER_PILE+(this.activePlayer*10)].length==0){
-            this.stateEmitter.next(GameStatesEnum.GAME_OVER);
-            this.state= GameStatesEnum.GAME_OVER;
-        }
-        if(this.deck.length==0){
-            this.stateEmitter.next(GameStatesEnum.DRAW);
-            this.state= GameStatesEnum.DRAW;
         }
     }
     
@@ -155,11 +143,6 @@ export class Game implements IGameModel{
     switchPlayer(){
         console.log(`game.switchPlayer()`);
         this.activePlayer=(this.activePlayer==0?1:0);
-    }
-
-    outOfCards(){
-        this.stateEmitter.next(GameStatesEnum.DRAW);
-        this.state= GameStatesEnum.DRAW;
     }
 }
 
