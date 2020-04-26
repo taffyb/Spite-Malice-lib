@@ -80,7 +80,6 @@ var Game = /** @class */ (function () {
         this.player1Uuid = "";
         this.player2Uuid = "";
         this.activePlayer = 0;
-        this.stats = { players: [{ turns: 0, moves: 0 }, { turns: 0, moves: 0 }] };
         this.state = enums_1.GameStatesEnum.PLAYING;
         this.cards = [[],
             [], [], [], [], [],
@@ -104,10 +103,6 @@ var Game = /** @class */ (function () {
         return cards;
     };
     Game.prototype.performMove = function (move) {
-        if (move.type == enums_1.MoveTypesEnum.PLAYER) {
-            var stats = this.stats.players[this.activePlayer];
-            stats.moves += 1;
-        }
         console.log("game.perfromMove[" + enums_1.MoveTypesEnum[move.type] + "]:" + JSON.stringify(move));
         var card = new cards_1.Card(move.card, move.to);
         this.addCard(card);
@@ -147,8 +142,6 @@ var Game = /** @class */ (function () {
     };
     Game.prototype.switchPlayer = function () {
         console.log("game.switchPlayer()");
-        var stats = this.stats.players[this.activePlayer];
-        stats.turns += 1;
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
     };
     Game.prototype.outOfCards = function () {

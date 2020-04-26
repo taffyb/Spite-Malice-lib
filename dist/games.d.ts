@@ -20,12 +20,6 @@ export declare class Game implements IGameModel {
     player1Uuid: string;
     player2Uuid: string;
     activePlayer: number;
-    stats: {
-        players: {
-            turns: number;
-            moves: number;
-        }[];
-    };
     state: GameStatesEnum;
     cards: ICardModel[][];
     stateEmitter: any;

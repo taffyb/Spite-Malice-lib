@@ -86,7 +86,6 @@ export class Game implements IGameModel{
     player1Uuid: string="";
     player2Uuid: string="";
     activePlayer:number=0;
-    stats:{players:{turns:number,moves:number}[]}={players:[{turns:0,moves:0},{turns:0,moves:0}]};
     state:GameStatesEnum=GameStatesEnum.PLAYING
 
     cards:ICardModel[][]=[[],             /*PLAYER_1_PILE*/
@@ -105,7 +104,6 @@ export class Game implements IGameModel{
     recyclePile:ICardModel[]=this.cards[PositionsEnum.RECYCLE];
     
     constructor(){}
-    
 //    onStateChange$():Observable<GameStatesEnum>{
 //        const o=Observable.create(e => this.stateEmitter = e);
 //        return o;
@@ -115,10 +113,6 @@ export class Game implements IGameModel{
         return cards;
     }
     performMove(move: IMoveModel) {
-        if(move.type==MoveTypesEnum.PLAYER){
-            let stats=this.stats.players[this.activePlayer];
-            stats.moves+=1;
-        }
         console.log(`game.perfromMove[${MoveTypesEnum[move.type]}]:${JSON.stringify(move)}`);
         const card:Card=new Card(move.card,move.to);
         this.addCard(card);
@@ -160,8 +154,6 @@ export class Game implements IGameModel{
     }
     switchPlayer(){
         console.log(`game.switchPlayer()`);
-        let stats=this.stats.players[this.activePlayer];
-        stats.turns+=1;
         this.activePlayer=(this.activePlayer==0?1:0);
     }
 
