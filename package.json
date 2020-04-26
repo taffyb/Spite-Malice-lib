@@ -1,7 +1,7 @@
 {
-  "name": "hwrld",
+  "name": "s-n-m-lib",
   "version": "1.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "description": "common Spite-n-Malice classes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts"
 }
