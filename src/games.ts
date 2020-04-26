@@ -19,7 +19,7 @@ export interface IGameModel {
     cards:ICardModel[][];
 }
 export class GameFactory{
-    static newLocalGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[]):Game{
+    static newLocalGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[]):IGameModel{
         const game:Game = new Game();
         game.uuid= uuid();
         game.name=name;
