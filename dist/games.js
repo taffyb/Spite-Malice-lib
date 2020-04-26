@@ -94,10 +94,6 @@ var Game = /** @class */ (function () {
         this.deck = this.cards[enums_1.PositionsEnum.DECK];
         this.recyclePile = this.cards[enums_1.PositionsEnum.RECYCLE];
     }
-    //    onStateChange$():Observable<GameStatesEnum>{
-    //        const o=Observable.create(e => this.stateEmitter = e);
-    //        return o;
-    //    }
     Game.prototype.getCards = function (position) {
         var cards = this.cards[position];
         return cards;
@@ -108,14 +104,6 @@ var Game = /** @class */ (function () {
         this.addCard(card);
         if (move.type != enums_1.MoveTypesEnum.DEALER) {
             this.removeCard(move.from);
-        }
-        if (this.cards[enums_1.PositionsEnum.PLAYER_PILE + (this.activePlayer * 10)].length == 0) {
-            this.stateEmitter.next(enums_1.GameStatesEnum.GAME_OVER);
-            this.state = enums_1.GameStatesEnum.GAME_OVER;
-        }
-        if (this.deck.length == 0) {
-            this.stateEmitter.next(enums_1.GameStatesEnum.DRAW);
-            this.state = enums_1.GameStatesEnum.DRAW;
         }
     };
     Game.prototype.addCard = function (card) {
@@ -143,10 +131,6 @@ var Game = /** @class */ (function () {
     Game.prototype.switchPlayer = function () {
         console.log("game.switchPlayer()");
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
-    };
-    Game.prototype.outOfCards = function () {
-        this.stateEmitter.next(enums_1.GameStatesEnum.DRAW);
-        this.state = enums_1.GameStatesEnum.DRAW;
     };
     return Game;
 }());

@@ -11,7 +11,7 @@ export interface IGameModel {
     cards: ICardModel[][];
 }
 export declare class GameFactory {
-    static newLocalGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[]): Game;
+    static newLocalGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[]): IGameModel;
     static gameFromInterface(g: IGameModel): Game;
 }
 export declare class Game implements IGameModel {
@@ -22,7 +22,6 @@ export declare class Game implements IGameModel {
     activePlayer: number;
     state: GameStatesEnum;
     cards: ICardModel[][];
-    stateEmitter: any;
     deck: ICardModel[];
     recyclePile: ICardModel[];
     constructor();
@@ -33,5 +32,4 @@ export declare class Game implements IGameModel {
     cardsInHand(): number;
     hasCardsOnPile(): boolean;
     switchPlayer(): void;
-    outOfCards(): void;
 }

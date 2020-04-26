@@ -17,3 +17,7 @@ exports.Move = moves_1.Move;
 var games_1 = require("./games");
 exports.GameFactory = games_1.GameFactory;
 exports.Game = games_1.Game;
+var sm_utils_1 = require("./sm.utils");
+exports.SMUtils = sm_utils_1.SMUtils;
+var profile_1 = require("./profile");
+exports.DEFAULT_PROFILE = profile_1.DEFAULT_PROFILE;

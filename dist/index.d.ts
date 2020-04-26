@@ -3,3 +3,5 @@ export { Card, ICardModel } from './cards';
 export { Player, IPlayerModel } from './players';
 export { Move, IMoveModel } from './moves';
 export { IGameModel, GameFactory, Game } from './games';
+export { SMUtils } from './sm.utils';
+export { IProfileModel, DEFAULT_PROFILE } from './profile';
