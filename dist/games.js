@@ -13,7 +13,7 @@ var PlayerStats = /** @class */ (function () {
 var GameFactory = /** @class */ (function () {
     function GameFactory() {
     }
-    GameFactory.newLocalGame = function (name, player1Uuid, player2Uuid, deck) {
+    GameFactory.newGame = function (name, player1Uuid, player2Uuid, deck) {
         var game = new Game();
         game.uuid = uuid_1.v4();
         game.name = name;

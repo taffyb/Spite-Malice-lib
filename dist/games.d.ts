@@ -11,7 +11,7 @@ export interface IGameModel {
     cards?: ICardModel[][];
 }
 export declare class GameFactory {
-    static newLocalGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[]): IGameModel;
+    static newGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[]): IGameModel;
     static gameFromInterface(g: IGameModel): Game;
 }
 export declare class Game implements IGameModel {
