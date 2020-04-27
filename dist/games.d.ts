@@ -6,9 +6,9 @@ export interface IGameModel {
     name: string;
     player1Uuid: string;
     player2Uuid: string;
-    activePlayer: number;
-    state: GameStatesEnum;
-    cards: ICardModel[][];
+    activePlayer?: number;
+    state?: GameStatesEnum;
+    cards?: ICardModel[][];
 }
 export declare class GameFactory {
     static newLocalGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[]): IGameModel;
