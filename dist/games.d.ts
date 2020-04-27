@@ -2,10 +2,10 @@ import { ICardModel, Card } from './cards';
 import { IMoveModel } from './moves';
 import { PositionsEnum, GameStatesEnum } from './enums';
 export interface IGameModel {
-    uuid: string;
     name: string;
     player1Uuid: string;
     player2Uuid: string;
+    uuid?: string;
     activePlayer?: number;
     state?: GameStatesEnum;
     cards?: ICardModel[][];

@@ -10,10 +10,10 @@ class PlayerStats{
     moves:number;
 }
 export interface IGameModel {
-    uuid: string;
     name: string;
     player1Uuid: string;
     player2Uuid: string;
+    uuid?: string;
     activePlayer?:number;
     state?:GameStatesEnum;
     cards?:ICardModel[][];
