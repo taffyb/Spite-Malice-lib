@@ -32,4 +32,5 @@ export declare class Game implements IGameModel {
     cardsInHand(): number;
     hasCardsOnPile(): boolean;
     switchPlayer(): void;
+    outOfCards(): void;
 }

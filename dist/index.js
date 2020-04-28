@@ -21,3 +21,5 @@ var sm_utils_1 = require("./sm.utils");
 exports.SMUtils = sm_utils_1.SMUtils;
 var profile_1 = require("./profile");
 exports.DEFAULT_PROFILE = profile_1.DEFAULT_PROFILE;
+var dealer_1 = require("./dealer");
+exports.Dealer = dealer_1.Dealer;

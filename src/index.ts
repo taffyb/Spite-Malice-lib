@@ -5,3 +5,4 @@ export {Move, IMoveModel} from './moves';
 export {IGameModel, GameFactory, Game} from './games';
 export {SMUtils} from './sm.utils';
 export {IProfileModel, DEFAULT_PROFILE} from './profile';
+export {Dealer} from './dealer';

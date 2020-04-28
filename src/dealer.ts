@@ -1,6 +1,7 @@
-import {Game} from '../classes/games';
-import {IMoveModel, Move, ICardModel, Card} from 's-n-m-lib';
-import {PositionsEnum, CardsEnum, PlayerPositionsEnum, MoveTypesEnum} from 's-n-m-lib';
+import {Game} from './games';
+import {ICardModel, Card} from './cards';
+import {IMoveModel, Move} from './moves';
+import {PositionsEnum, CardsEnum, PlayerPositionsEnum, MoveTypesEnum} from './enums';
 
 export class Dealer{
     getDeck():number[]{

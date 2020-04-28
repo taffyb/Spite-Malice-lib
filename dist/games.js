@@ -132,6 +132,7 @@ var Game = /** @class */ (function () {
         console.log("game.switchPlayer()");
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
     };
+    Game.prototype.outOfCards = function () { };
     return Game;
 }());
 exports.Game = Game;

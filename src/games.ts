@@ -144,5 +144,6 @@ export class Game implements IGameModel{
         console.log(`game.switchPlayer()`);
         this.activePlayer=(this.activePlayer==0?1:0);
     }
+    outOfCards(){}
 }
 
