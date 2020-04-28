@@ -90,9 +90,6 @@ var Game = /** @class */ (function () {
             [], [], [], [],
             [],
             []]; /*RECYCLE*/
-        // convienience 
-        this.deck = this.cards[enums_1.PositionsEnum.DECK];
-        this.recyclePile = this.cards[enums_1.PositionsEnum.RECYCLE];
     }
     Game.prototype.getCards = function (position) {
         var cards = this.cards[position];

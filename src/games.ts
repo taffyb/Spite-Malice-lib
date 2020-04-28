@@ -98,10 +98,6 @@ export class Game implements IGameModel{
                           [],             /*DECK*/
                           []];            /*RECYCLE*/
 
-    // convienience 
-    deck:ICardModel[]=this.cards[PositionsEnum.DECK];
-    recyclePile:ICardModel[]=this.cards[PositionsEnum.RECYCLE];
-    
     constructor(){}
 
     getCards(position:PositionsEnum):ICardModel[]{

@@ -61,22 +61,22 @@ export class Dealer{
         shuffle the recycle pile and add them back into the deck.
         */
         console.log(`*** Recycle Discard pile ***`);
-        for(let i=game.recyclePile.length-1;i>=0;i--){
-            game.deck.push(game.recyclePile.pop());
+        for(let i=game.getCards(PositionsEnum.RECYCLE).length-1;i>=0;i--){
+            game.getCards(PositionsEnum.DECK).push(game.getCards(PositionsEnum.RECYCLE).pop());
         };
-        this.shuffle<Card>(game.deck);
+        this.shuffle<Card>(game.getCards(PositionsEnum.DECK));
     }
     protected dealNextCard(game:Game):Card{
         let nextCard:Card;
-        if(game.deck.length==0){
+        if(game.getCards(PositionsEnum.DECK).length==0){
             this.recycle(game);
         }
-        if(game.deck.length==0){
+        if(game.getCards(PositionsEnum.DECK).length==0){
             throw Error;
         }
         
-        nextCard= game.deck.pop();
-        if(game.deck.length==0){
+        nextCard= game.getCards(PositionsEnum.DECK).pop();
+        if(game.getCards(PositionsEnum.DECK).length==0){
             this.recycle(game);
         }
         return nextCard;

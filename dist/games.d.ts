@@ -22,8 +22,6 @@ export declare class Game implements IGameModel {
     activePlayer: number;
     state: GameStatesEnum;
     cards: ICardModel[][];
-    deck: ICardModel[];
-    recyclePile: ICardModel[];
     constructor();
     getCards(position: PositionsEnum): ICardModel[];
     performMove(move: IMoveModel): void;

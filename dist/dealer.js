@@ -61,22 +61,22 @@ var Dealer = /** @class */ (function () {
         shuffle the recycle pile and add them back into the deck.
         */
         console.log("*** Recycle Discard pile ***");
-        for (var i = game.recyclePile.length - 1; i >= 0; i--) {
-            game.deck.push(game.recyclePile.pop());
+        for (var i = game.getCards(enums_1.PositionsEnum.RECYCLE).length - 1; i >= 0; i--) {
+            game.getCards(enums_1.PositionsEnum.DECK).push(game.getCards(enums_1.PositionsEnum.RECYCLE).pop());
         }
         ;
-        this.shuffle(game.deck);
+        this.shuffle(game.getCards(enums_1.PositionsEnum.DECK));
     };
     Dealer.prototype.dealNextCard = function (game) {
         var nextCard;
-        if (game.deck.length == 0) {
+        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
             this.recycle(game);
         }
-        if (game.deck.length == 0) {
+        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
             throw Error;
         }
-        nextCard = game.deck.pop();
-        if (game.deck.length == 0) {
+        nextCard = game.getCards(enums_1.PositionsEnum.DECK).pop();
+        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
             this.recycle(game);
         }
         return nextCard;
