@@ -1,9 +1,8 @@
 import {ICardModel, Card} from './cards';
 import {IMoveModel} from './moves';
+import {SMUtils} from './sm.utils';
 import {PositionsEnum, CardsEnum,MoveTypesEnum, GameStatesEnum, PlayerPositionsEnum} from './enums';
 import { v4 as uuid } from 'uuid';
-//import {EventEmitter} from '@angular/core';
-//import {Observable} from 'rxjs';
 
 class PlayerStats{
     turns:number;
@@ -19,7 +18,8 @@ export interface IGameModel {
     cards?:ICardModel[][];
 }
 export class GameFactory{
-    static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[]):IGameModel{
+    static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[],debug=false):IGameModel{
+        if(debug)console.log(`*** GameFactory.newGame ***`);
         const game:Game = new Game();
         game.uuid= uuid();
         game.name=name;
@@ -65,6 +65,8 @@ export class GameFactory{
             card= new Card(deck[i],PositionsEnum.DECK);
             game.addCard(card);
         }
+        game.activePlayer=this.whosTurnFirst(game);
+        if(debug)console.log(`GameFactory.newGame.activePlayer=${game.activePlayer}`);
         return game;
     }
     static gameFromInterface(g:IGameModel):Game{
@@ -78,6 +80,34 @@ export class GameFactory{
         game.cards=g.cards;
         
         return game;
+    }
+
+    private static  whosTurnFirst(game:IGameModel):number{
+        let activePlayer:number=0;
+        
+        if(SMUtils.toFaceNumber(game.cards[PositionsEnum.PLAYER_PILE][game.cards[PositionsEnum.PLAYER_PILE].length-1].cardNo) 
+           >  
+        SMUtils.toFaceNumber(game.cards[PositionsEnum.PLAYER_PILE+10][game.cards[PositionsEnum.PLAYER_PILE+10].length-1].cardNo)){         
+            activePlayer=1;
+        }
+        if(SMUtils.toFaceNumber(game.cards[PositionsEnum.PLAYER_PILE][game.cards[PositionsEnum.PLAYER_PILE].length-1].cardNo) 
+           ==  
+        SMUtils.toFaceNumber(game.cards[PositionsEnum.PLAYER_PILE+10][game.cards[PositionsEnum.PLAYER_PILE+10].length-1].cardNo)){
+            for(let i:number=PositionsEnum.PLAYER_STACK_1;i<=PositionsEnum.PLAYER_STACK_4;i++){
+                if(SMUtils.toFaceNumber(game.cards[i][game.cards[i].length-1].cardNo) 
+                  >  
+                SMUtils.toFaceNumber(game.cards[i+10][game.cards[i+10].length-1].cardNo)){
+                     
+                     activePlayer=1;
+                     break;
+                }else if(SMUtils.toFaceNumber(game.cards[i][game.cards[i].length-1].cardNo) 
+                  ==  
+                SMUtils.toFaceNumber(game.cards[i+10][game.cards[i+10].length-1].cardNo)){
+                    continue;
+                }
+            }
+        }
+        return activePlayer;
     }
 }
 export class Game implements IGameModel{

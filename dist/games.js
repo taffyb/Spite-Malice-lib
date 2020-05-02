@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var cards_1 = require("./cards");
+var sm_utils_1 = require("./sm.utils");
 var enums_1 = require("./enums");
 var uuid_1 = require("uuid");
-//import {EventEmitter} from '@angular/core';
-//import {Observable} from 'rxjs';
 var PlayerStats = /** @class */ (function () {
     function PlayerStats() {
     }
@@ -13,7 +12,10 @@ var PlayerStats = /** @class */ (function () {
 var GameFactory = /** @class */ (function () {
     function GameFactory() {
     }
-    GameFactory.newGame = function (name, player1Uuid, player2Uuid, deck) {
+    GameFactory.newGame = function (name, player1Uuid, player2Uuid, deck, debug) {
+        if (debug === void 0) { debug = false; }
+        if (debug)
+            console.log("*** GameFactory.newGame ***");
         var game = new Game();
         game.uuid = uuid_1.v4();
         game.name = name;
@@ -58,6 +60,9 @@ var GameFactory = /** @class */ (function () {
             card = new cards_1.Card(deck[i], enums_1.PositionsEnum.DECK);
             game.addCard(card);
         }
+        game.activePlayer = this.whosTurnFirst(game);
+        if (debug)
+            console.log("GameFactory.newGame.activePlayer=" + game.activePlayer);
         return game;
     };
     GameFactory.gameFromInterface = function (g) {
@@ -70,6 +75,32 @@ var GameFactory = /** @class */ (function () {
         game.state = g.state;
         game.cards = g.cards;
         return game;
+    };
+    GameFactory.whosTurnFirst = function (game) {
+        var activePlayer = 0;
+        if (sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE][game.cards[enums_1.PositionsEnum.PLAYER_PILE].length - 1].cardNo)
+            >
+                sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10][game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10].length - 1].cardNo)) {
+            activePlayer = 1;
+        }
+        if (sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE][game.cards[enums_1.PositionsEnum.PLAYER_PILE].length - 1].cardNo)
+            ==
+                sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10][game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10].length - 1].cardNo)) {
+            for (var i = enums_1.PositionsEnum.PLAYER_STACK_1; i <= enums_1.PositionsEnum.PLAYER_STACK_4; i++) {
+                if (sm_utils_1.SMUtils.toFaceNumber(game.cards[i][game.cards[i].length - 1].cardNo)
+                    >
+                        sm_utils_1.SMUtils.toFaceNumber(game.cards[i + 10][game.cards[i + 10].length - 1].cardNo)) {
+                    activePlayer = 1;
+                    break;
+                }
+                else if (sm_utils_1.SMUtils.toFaceNumber(game.cards[i][game.cards[i].length - 1].cardNo)
+                    ==
+                        sm_utils_1.SMUtils.toFaceNumber(game.cards[i + 10][game.cards[i + 10].length - 1].cardNo)) {
+                    continue;
+                }
+            }
+        }
+        return activePlayer;
     };
     return GameFactory;
 }());
