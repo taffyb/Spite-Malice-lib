@@ -80,7 +80,8 @@ var GameFactory = /** @class */ (function () {
         var activePlayer = 0;
         if (sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE][game.cards[enums_1.PositionsEnum.PLAYER_PILE].length - 1].cardNo)
             >
-                sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10][game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10].length - 1].cardNo)) {
+                sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10][game.cards[enums_1.PositionsEnum.PLAYER_PILE + 10].length - 1].cardNo)
+            && !(game.cards[enums_1.PositionsEnum.PLAYER_PILE][game.cards[enums_1.PositionsEnum.PLAYER_PILE].length - 1].cardNo == enums_1.CardsEnum.JOKER)) {
             activePlayer = 1;
         }
         if (sm_utils_1.SMUtils.toFaceNumber(game.cards[enums_1.PositionsEnum.PLAYER_PILE][game.cards[enums_1.PositionsEnum.PLAYER_PILE].length - 1].cardNo)
