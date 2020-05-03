@@ -21,6 +21,7 @@ var GameFactory = /** @class */ (function () {
         game.name = name;
         game.player1Uuid = player1Uuid;
         game.player2Uuid = player2Uuid;
+        game.createDateTime = Date.now();
         var c;
         var card;
         //DEAL PILE
@@ -74,6 +75,8 @@ var GameFactory = /** @class */ (function () {
         game.activePlayer = g.activePlayer;
         game.state = g.state;
         game.cards = g.cards;
+        game.createDateTime = g.createDateTime;
+        game.updateDateTime = g.updateDateTime;
         return game;
     };
     GameFactory.whosTurnFirst = function (game) {
