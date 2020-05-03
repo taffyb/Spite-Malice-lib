@@ -16,6 +16,8 @@ export interface IGameModel {
     activePlayer?:number;
     state?:GameStatesEnum;
     cards?:ICardModel[][];
+    createDateTime?:number;
+    updateDateTime?:number;
 }
 export class GameFactory{
     static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[],debug=false):IGameModel{
@@ -25,6 +27,7 @@ export class GameFactory{
         game.name=name;
         game.player1Uuid=player1Uuid;
         game.player2Uuid=player2Uuid;
+        game.createDateTime=Date.now();
 
         let c:number;
         let card:ICardModel;
@@ -78,6 +81,8 @@ export class GameFactory{
         game.activePlayer=g.activePlayer;
         game.state= g.state;
         game.cards=g.cards;
+        game.createDateTime=g.createDateTime;
+        game.updateDateTime=g.updateDateTime;        
         
         return game;
     }
@@ -118,6 +123,8 @@ export class Game implements IGameModel{
     player2Uuid: string="";
     activePlayer:number=0;
     state:GameStatesEnum=GameStatesEnum.PLAYING
+    createDateTime:number;
+    updateDateTime:number;
 
     cards:ICardModel[][]=[[],             /*PLAYER_1_PILE*/
                           [],[],[],[],[], /*PLAYER_1_HAND*/
