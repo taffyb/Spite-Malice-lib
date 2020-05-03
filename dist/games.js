@@ -21,7 +21,7 @@ var GameFactory = /** @class */ (function () {
         game.name = name;
         game.player1Uuid = player1Uuid;
         game.player2Uuid = player2Uuid;
-        game.createDateTime = Date.now();
+        game.createDateTime = "" + Date.now();
         var c;
         var card;
         //DEAL PILE
