@@ -131,7 +131,6 @@ var Game = /** @class */ (function () {
         return cards;
     };
     Game.prototype.performMove = function (move) {
-        console.log("game.perfromMove[" + enums_1.MoveTypesEnum[move.type] + "]:" + JSON.stringify(move));
         var card = new cards_1.Card(move.card, move.to);
         this.addCard(card);
         if (move.type != enums_1.MoveTypesEnum.DEALER) {
@@ -161,7 +160,6 @@ var Game = /** @class */ (function () {
         return this.cards[PILE].length > 0;
     };
     Game.prototype.switchPlayer = function () {
-        console.log("game.switchPlayer()");
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
     };
     Game.prototype.outOfCards = function () { };
