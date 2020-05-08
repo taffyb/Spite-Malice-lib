@@ -143,7 +143,6 @@ export class Game implements IGameModel{
         return cards;
     }
     performMove(move: IMoveModel) {
-        console.log(`game.perfromMove[${MoveTypesEnum[move.type]}]:${JSON.stringify(move)}`);
         const card:Card=new Card(move.card,move.to);
         this.addCard(card);
         if(move.type!=MoveTypesEnum.DEALER){
@@ -175,7 +174,6 @@ export class Game implements IGameModel{
         return this.cards[PILE].length>0;
     }
     switchPlayer(){
-        console.log(`game.switchPlayer()`);
         this.activePlayer=(this.activePlayer==0?1:0);
     }
     outOfCards(){}
