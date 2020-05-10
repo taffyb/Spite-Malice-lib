@@ -12,12 +12,13 @@ export interface IMoveModel {
 }
 export declare class Move implements IMoveModel {
     id: number;
-    gameUuid: "";
-    playerUuid: "";
+    gameUuid: string;
+    playerUuid: string;
     from: number;
     card: number;
     to: number;
     isDiscard: boolean;
     isUndo: boolean;
     type: MoveTypesEnum;
+    static fromModel(m: IMoveModel): Move;
 }
