@@ -29,8 +29,8 @@ export class Move implements IMoveModel{
         move.from=m.from;
         move.card=m.card;
         move.to=m.to;
-        move.isDiscard=m.isDiscard;
-        move.isUndo=m.isUndo;
+        move.isDiscard=m.isDiscard || (String(m.isDiscard) ==='true');
+        move.isUndo=m.isUndo || (String(m.isUndo) ==='true');
         move.type=m.type;
         
         return move;
