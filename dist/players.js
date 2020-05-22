@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var uuid_1 = require("uuid");
-var IOpponentModel = /** @class */ (function () {
-    function IOpponentModel() {
+var Opponent = /** @class */ (function () {
+    function Opponent() {
         this.online = false;
     }
-    return IOpponentModel;
+    return Opponent;
 }());
-exports.IOpponentModel = IOpponentModel;
+exports.Opponent = Opponent;
 var Player = /** @class */ (function () {
     function Player() {
     }
