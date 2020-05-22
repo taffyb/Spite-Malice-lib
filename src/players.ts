@@ -4,6 +4,11 @@ export interface IPlayerModel{
     uuid:string;
     name:string;
 }
+export class IOpponentModel implements IPlayerModel{
+    uuid: string;
+    name: string;
+    online?:boolean=false;
+}
 export class Player implements IPlayerModel{
     uuid: string;
     name: string;
