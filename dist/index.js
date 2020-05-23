@@ -12,6 +12,7 @@ var cards_1 = require("./cards");
 exports.Card = cards_1.Card;
 var players_1 = require("./players");
 exports.Player = players_1.Player;
+exports.Opponent = players_1.Opponent;
 var moves_1 = require("./moves");
 exports.Move = moves_1.Move;
 var games_1 = require("./games");
