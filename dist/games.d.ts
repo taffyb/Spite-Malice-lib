@@ -11,6 +11,7 @@ export interface IGameModel {
     cards?: ICardModel[][];
     createDateTime?: string;
     updateDateTime?: string;
+    local?: boolean;
 }
 export declare class GameFactory {
     static newGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[], debug?: boolean): IGameModel;
@@ -26,6 +27,7 @@ export declare class Game implements IGameModel {
     state: GameStatesEnum;
     createDateTime: string;
     updateDateTime: string;
+    local: boolean;
     cards: ICardModel[][];
     constructor();
     getCards(position: PositionsEnum): ICardModel[];

@@ -18,11 +18,13 @@ export interface IGameModel {
     cards?:ICardModel[][];
     createDateTime?:string;
     updateDateTime?:string;
+    local?:boolean;
 }
 export class GameFactory{
     static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[],debug=false):IGameModel{
         if(debug)console.log(`*** GameFactory.newGame ***`);
         const game:Game = new Game();
+        game.local=false;
         game.uuid= uuid();
         game.name=name;
         game.player1Uuid=player1Uuid;
@@ -125,6 +127,7 @@ export class Game implements IGameModel{
     state:GameStatesEnum=GameStatesEnum.PLAYING
     createDateTime:string;
     updateDateTime:string;
+    local:boolean;
 
     cards:ICardModel[][]=[[],             /*PLAYER_1_PILE*/
                           [],[],[],[],[], /*PLAYER_1_HAND*/

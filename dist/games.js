@@ -17,6 +17,7 @@ var GameFactory = /** @class */ (function () {
         if (debug)
             console.log("*** GameFactory.newGame ***");
         var game = new Game();
+        game.local = false;
         game.uuid = uuid_1.v4();
         game.name = name;
         game.player1Uuid = player1Uuid;
