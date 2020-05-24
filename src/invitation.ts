@@ -5,4 +5,5 @@ export interface IInvitationModel{
     from:IPlayerModel;
     to:IPlayerModel;
     timestamp:number;
+    response?:boolean;
 }
