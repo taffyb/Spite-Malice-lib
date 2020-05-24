@@ -1,6 +1,6 @@
 {
   "name": "s-n-m-lib",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "common Spite-n-Malice classes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
