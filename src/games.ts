@@ -21,10 +21,10 @@ export interface IGameModel {
     local?:boolean;
 }
 export class GameFactory{
-    static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[],debug=false):IGameModel{
+    static newGame(name:string, player1Uuid: string, player2Uuid: string,deck:number[],local=false,debug=false):IGameModel{
         if(debug)console.log(`*** GameFactory.newGame ***`);
         const game:Game = new Game();
-        game.local=false;
+        game.local=local;
         game.uuid= uuid();
         game.name=name;
         game.player1Uuid=player1Uuid;

@@ -12,12 +12,13 @@ var PlayerStats = /** @class */ (function () {
 var GameFactory = /** @class */ (function () {
     function GameFactory() {
     }
-    GameFactory.newGame = function (name, player1Uuid, player2Uuid, deck, debug) {
+    GameFactory.newGame = function (name, player1Uuid, player2Uuid, deck, local, debug) {
+        if (local === void 0) { local = false; }
         if (debug === void 0) { debug = false; }
         if (debug)
             console.log("*** GameFactory.newGame ***");
         var game = new Game();
-        game.local = false;
+        game.local = local;
         game.uuid = uuid_1.v4();
         game.name = name;
         game.player1Uuid = player1Uuid;

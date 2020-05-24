@@ -14,7 +14,7 @@ export interface IGameModel {
     local?: boolean;
 }
 export declare class GameFactory {
-    static newGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[], debug?: boolean): IGameModel;
+    static newGame(name: string, player1Uuid: string, player2Uuid: string, deck: number[], local?: boolean, debug?: boolean): IGameModel;
     static gameFromInterface(g: IGameModel): Game;
     private static whosTurnFirst;
 }
