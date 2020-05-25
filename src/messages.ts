@@ -1,0 +1,13 @@
+import {IMoveModel} from './moves';
+import {IPlayerModel} from './players';
+
+export interface IMoveMessage{
+    moves:IMoveModel[];
+    from:IPlayerModel;
+    to:IPlayerModel;
+    gameUuid:string;
+}
+export interface IJoinMessage{
+    player2:IPlayerModel;
+    gameUuid:string;
+}

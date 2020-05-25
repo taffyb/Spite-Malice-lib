@@ -7,3 +7,4 @@ export { SMUtils } from './sm.utils';
 export { IProfileModel, DEFAULT_PROFILE } from './profile';
 export { Dealer } from './dealer';
 export { IInvitationModel } from './invitation';
+export { IMoveMessage, IJoinMessage } from './messages';
