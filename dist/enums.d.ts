@@ -55,7 +55,8 @@ export declare enum MoveTypesEnum {
     PLAYER = 0,
     DEALER = 1,
     RECYCLE = 2,
-    PLAYER_SWITCH = 3
+    PLAYER_SWITCH = 3,
+    REMOTE = 4
 }
 export declare enum GameStatesEnum {
     PLAYING = 0,

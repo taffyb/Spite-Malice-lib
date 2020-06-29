@@ -64,6 +64,7 @@ var MoveTypesEnum;
     MoveTypesEnum[MoveTypesEnum["DEALER"] = 1] = "DEALER";
     MoveTypesEnum[MoveTypesEnum["RECYCLE"] = 2] = "RECYCLE";
     MoveTypesEnum[MoveTypesEnum["PLAYER_SWITCH"] = 3] = "PLAYER_SWITCH";
+    MoveTypesEnum[MoveTypesEnum["REMOTE"] = 4] = "REMOTE";
 })(MoveTypesEnum = exports.MoveTypesEnum || (exports.MoveTypesEnum = {}));
 var GameStatesEnum;
 (function (GameStatesEnum) {
