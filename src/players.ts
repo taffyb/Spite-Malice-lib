@@ -8,6 +8,7 @@ export class Opponent implements IPlayerModel{
     uuid: string;
     name: string;
     online?:boolean=false;
+    scoreCard:{games:number,wins?:number,losses?:number};
 }
 export class Player implements IPlayerModel{
     uuid: string;
