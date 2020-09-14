@@ -59,6 +59,7 @@ export declare enum MoveTypesEnum {
     REMOTE = 4
 }
 export declare enum GameStatesEnum {
+    NEW = -1,
     PLAYING = 0,
     PAUSED = 1,
     DRAW = 2,

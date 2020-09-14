@@ -59,6 +59,7 @@ export enum MoveTypesEnum{
     REMOTE
 }
 export enum GameStatesEnum{
+    NEW=-1,
     PLAYING=0,
     PAUSED,
     DRAW,

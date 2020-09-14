@@ -68,6 +68,7 @@ var MoveTypesEnum;
 })(MoveTypesEnum = exports.MoveTypesEnum || (exports.MoveTypesEnum = {}));
 var GameStatesEnum;
 (function (GameStatesEnum) {
+    GameStatesEnum[GameStatesEnum["NEW"] = -1] = "NEW";
     GameStatesEnum[GameStatesEnum["PLAYING"] = 0] = "PLAYING";
     GameStatesEnum[GameStatesEnum["PAUSED"] = 1] = "PAUSED";
     GameStatesEnum[GameStatesEnum["DRAW"] = 2] = "DRAW";
