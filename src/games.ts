@@ -33,41 +33,42 @@ export class GameFactory{
 
         let c:number;
         let card:ICardModel;
+        let id:number=0;
         //DEAL PILE
         for(let i:number=0;i<13;i++){
             //player 1
             c=deck.pop();
-            card= new Card(c,PositionsEnum.PLAYER_PILE);
+            card= new Card(c,PositionsEnum.PLAYER_PILE,++id);
             game.addCard(card);
             //player 2
             c=deck.pop();
-            card= new Card(c,PositionsEnum.PLAYER_PILE+10);
+            card= new Card(c,PositionsEnum.PLAYER_PILE+10,++id);
             game.addCard(card);
         }
         //START STACKS
         for(let i:number=0;i<4;i++){
             //player 1
             c=deck.pop();
-            card= new Card(c,PositionsEnum.PLAYER_STACK_1+i);
+            card= new Card(c,PositionsEnum.PLAYER_STACK_1+i,++id);
             game.addCard(card);
             //player 2
             c=deck.pop();
-            card= new Card(c,(PositionsEnum.PLAYER_STACK_1+i)+10);
+            card= new Card(c,(PositionsEnum.PLAYER_STACK_1+i,++id)+10);
             game.addCard(card);
         }
         //DEAL HAND
         for(let i:number=0;i<5;i++){
             //player 1
             c=deck.pop();
-            card= new Card(c,PositionsEnum.PLAYER_HAND_1+i);
+            card= new Card(c,PositionsEnum.PLAYER_HAND_1+i,++id);
             game.addCard(card);
             //player 2
             c=deck.pop();
-            card= new Card(c,(PositionsEnum.PLAYER_HAND_1+i)+10);
+            card= new Card(c,(PositionsEnum.PLAYER_HAND_1+i)+10,++id);
             game.addCard(card);
         }
         for(let i:number=0;i<deck.length;i++){
-            card= new Card(deck[i],PositionsEnum.DECK);
+            card= new Card(deck[i],PositionsEnum.DECK,++id);
             game.addCard(card);
         }
         game.activePlayer=this.whosTurnFirst(game);
