@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Card = /** @class */ (function () {
-    function Card(cardNo, position, id) {
-        this.id = id || -1;
+    function Card(cardNo, position) {
         this.cardNo = cardNo;
         this.position = position;
     }

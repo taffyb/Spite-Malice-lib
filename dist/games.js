@@ -26,42 +26,41 @@ var GameFactory = /** @class */ (function () {
         game.createDateTime = "" + Date.now();
         var c;
         var card;
-        var id = 0;
         //DEAL PILE
         for (var i = 0; i < 13; i++) {
             //player 1
             c = deck.pop();
-            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_PILE, ++id);
+            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_PILE);
             game.addCard(card);
             //player 2
             c = deck.pop();
-            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_PILE + 10, ++id);
+            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_PILE + 10);
             game.addCard(card);
         }
         //START STACKS
         for (var i = 0; i < 4; i++) {
             //player 1
             c = deck.pop();
-            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_STACK_1 + i, ++id);
+            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_STACK_1 + i);
             game.addCard(card);
             //player 2
             c = deck.pop();
-            card = new cards_1.Card(c, (enums_1.PositionsEnum.PLAYER_STACK_1 + i, ++id) + 10);
+            card = new cards_1.Card(c, (enums_1.PositionsEnum.PLAYER_STACK_1 + i) + 10);
             game.addCard(card);
         }
         //DEAL HAND
         for (var i = 0; i < 5; i++) {
             //player 1
             c = deck.pop();
-            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_HAND_1 + i, ++id);
+            card = new cards_1.Card(c, enums_1.PositionsEnum.PLAYER_HAND_1 + i);
             game.addCard(card);
             //player 2
             c = deck.pop();
-            card = new cards_1.Card(c, (enums_1.PositionsEnum.PLAYER_HAND_1 + i) + 10, ++id);
+            card = new cards_1.Card(c, (enums_1.PositionsEnum.PLAYER_HAND_1 + i) + 10);
             game.addCard(card);
         }
         for (var i = 0; i < deck.length; i++) {
-            card = new cards_1.Card(deck[i], enums_1.PositionsEnum.DECK, ++id);
+            card = new cards_1.Card(deck[i], enums_1.PositionsEnum.DECK);
             game.addCard(card);
         }
         game.activePlayer = this.whosTurnFirst(game);
