@@ -26,10 +26,10 @@ export class SMUtils{
           if(cards[depth].cardNo==CardsEnum.JOKER){
               return CardsEnum.ACE;
           }else{
-              return this.toFaceNumber(cards[depth].cardNo);
+              return cards[depth].cardNo;
           }          
       }else{
-          let faceNumber:number=this.toFaceNumber(cards[depth].cardNo);
+          let faceNumber:number=cards[depth].cardNo;
           if(faceNumber==CardsEnum.JOKER){
               return this.getFaceNumber(cards,depth-1)+1;
           }else{

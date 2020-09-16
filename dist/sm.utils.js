@@ -30,11 +30,11 @@ var SMUtils = /** @class */ (function () {
                 return enums_1.CardsEnum.ACE;
             }
             else {
-                return this.toFaceNumber(cards[depth].cardNo);
+                return cards[depth].cardNo;
             }
         }
         else {
-            var faceNumber = this.toFaceNumber(cards[depth].cardNo);
+            var faceNumber = cards[depth].cardNo;
             if (faceNumber == enums_1.CardsEnum.JOKER) {
                 return this.getFaceNumber(cards, depth - 1) + 1;
             }
