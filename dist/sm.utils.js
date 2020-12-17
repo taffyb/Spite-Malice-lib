@@ -88,6 +88,16 @@ var SMUtils = /** @class */ (function () {
         }
         return isJoker;
     };
+    /**
+     * @description difference between FaceNumber of p1 and 'projected' FaceNumber of p2
+     * @param cards all game cards
+     * @param p1 position 1
+     * @param p2 position 2
+     * @returns number
+     */
+    SMUtils.diff = function (cards, p1, p2) {
+        return (SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1])) - SMUtils.getFaceNumber(cards[p2]));
+    };
     return SMUtils;
 }());
 exports.SMUtils = SMUtils;

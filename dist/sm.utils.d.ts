@@ -35,4 +35,12 @@ export declare class SMUtils {
      * @returns boolean
      */
     static isJoker(cards: ICardModel[]): boolean;
+    /**
+     * @description difference between FaceNumber of p1 and 'projected' FaceNumber of p2
+     * @param cards all game cards
+     * @param p1 position 1
+     * @param p2 position 2
+     * @returns number
+     */
+    static diff(cards: ICardModel[][], p1: any, p2: any): number;
 }
