@@ -24,6 +24,18 @@ export class SMUtils{
         return c;
     }
     /**
+     * @description determines cardNo on the top of a stack. If the card array is empty it returns NO_CARD
+     * @param cards an array of ICardModel
+     * @returns number
+     */
+    static getTopCard(cards:ICardModel[]):number{
+        if(cards.length==0){
+            return CardsEnum.NO_CARD;
+        }else{
+            return cards[cards.length-1].cardNo;
+        }        
+    }
+    /**
      * @description determines displayed FaceNumber at the top of a stack. If the top card is a Joker, then the 'projected' value is returned.
      * @param cards an array of ICardModel
      * @returns number
