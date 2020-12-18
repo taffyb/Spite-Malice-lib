@@ -65,7 +65,7 @@ var SMUtils = /** @class */ (function () {
             }
         }
         else {
-            var faceNumber = cards[depth].cardNo;
+            var faceNumber = this.toFaceNumber(cards[depth].cardNo);
             if (faceNumber == enums_1.CardsEnum.JOKER) {
                 return this.getFaceNumber(cards, depth - 1) + 1;
             }
