@@ -42,5 +42,5 @@ export declare class SMUtils {
      * @param p2 position 2
      * @returns number
      */
-    static diff(cards: ICardModel[][], p1: any, p2: any): number;
+    static diff(cards: ICardModel[][], p1: number, p2: number): number;
 }

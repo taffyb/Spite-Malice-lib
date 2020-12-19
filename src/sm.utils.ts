@@ -87,7 +87,25 @@ export class SMUtils{
      * @param p2 position 2
      * @returns number
      */
-    static diff(cards:ICardModel[][],p1,p2):number{
-        return (SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1]))-SMUtils.getFaceNumber(cards[p2]));
+    static diff(cards:ICardModel[][],p1:number,p2:number):number{
+        let c1:number,c2:number;
+        const isPlayerPosition=(p:number):boolean=>{
+            if(p >=PositionsEnum.PLAYER_PILE && p<=PositionsEnum.PLAYER_STACK_4+10){
+                return true;
+            }
+        }
+        if(isPlayerPosition(p1)){
+            c1=SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1]))
+        }else{
+            c1=SMUtils.getFaceNumber(cards[p1]);
+        }
+        if(isPlayerPosition(p2)){
+            c2=SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p2]))
+        }else{
+            c2=SMUtils.getFaceNumber(cards[p2]);
+        }
+        let diff = (c1-c2);
+        console.log(`p1[${p1}]:${c1},p2[${p2}]:${c2} diff:${diff}`);
+        return diff;
     }
 }

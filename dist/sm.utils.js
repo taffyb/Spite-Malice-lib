@@ -96,7 +96,27 @@ var SMUtils = /** @class */ (function () {
      * @returns number
      */
     SMUtils.diff = function (cards, p1, p2) {
-        return (SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1])) - SMUtils.getFaceNumber(cards[p2]));
+        var c1, c2;
+        var isPlayerPosition = function (p) {
+            if (p >= enums_1.PositionsEnum.PLAYER_PILE && p <= enums_1.PositionsEnum.PLAYER_STACK_4 + 10) {
+                return true;
+            }
+        };
+        if (isPlayerPosition(p1)) {
+            c1 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1]));
+        }
+        else {
+            c1 = SMUtils.getFaceNumber(cards[p1]);
+        }
+        if (isPlayerPosition(p2)) {
+            c2 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p2]));
+        }
+        else {
+            c2 = SMUtils.getFaceNumber(cards[p2]);
+        }
+        var diff = (c1 - c2);
+        console.log("p1[" + p1 + "]:" + c1 + ",p2[" + p2 + "]:" + c2 + " diff:" + diff);
+        return diff;
     };
     return SMUtils;
 }());
