@@ -102,17 +102,27 @@ var SMUtils = /** @class */ (function () {
                 return true;
             }
         };
-        if (isPlayerPosition(p1)) {
-            c1 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1]));
+        if (cards[p1].length == 0) {
+            c1 = enums_1.CardsEnum.NO_CARD;
         }
         else {
-            c1 = SMUtils.getFaceNumber(cards[p1]);
+            if (isPlayerPosition(p1)) {
+                c1 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p1]));
+            }
+            else {
+                c1 = SMUtils.getFaceNumber(cards[p1]);
+            }
         }
-        if (isPlayerPosition(p2)) {
-            c2 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p2]));
+        if (cards[p2].length == 0) {
+            c2 = enums_1.CardsEnum.NO_CARD;
         }
         else {
-            c2 = SMUtils.getFaceNumber(cards[p2]);
+            if (isPlayerPosition(p2)) {
+                c2 = SMUtils.toFaceNumber(SMUtils.getTopCard(cards[p2]));
+            }
+            else {
+                c2 = SMUtils.getFaceNumber(cards[p2]);
+            }
         }
         var diff = (c1 - c2);
         console.log("p1[" + p1 + "]:" + c1 + ",p2[" + p2 + "]:" + c2 + " diff:" + diff);
