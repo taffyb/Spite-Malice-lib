@@ -50,7 +50,7 @@ export class SMUtils{
      * @param depth position in the array to return a FaceNumber for. Defaults to last position in the array
      * @returns the 'projected' FaceNumber of the position requested.
      */
-    static getFaceNumber(cards:ICardModel[],depth:number=0):number{
+    static getFaceNumber(cards:ICardModel[],depth:number=cards.length-1):number{
       if(depth==0){
           if(this.toFaceNumber(cards[depth].cardNo)==CardsEnum.JOKER){
               return CardsEnum.ACE;
@@ -113,7 +113,7 @@ export class SMUtils{
             }
         }
         let diff = (c1-c2);
-        console.log(`p1[${p1}]:${c1},p2[${p2}]:${c2} diff:${diff}`);
+        // console.log(`p1[${p1}]:${c1},p2[${p2}]:${c2} diff:${diff}`);
         return diff;
     }
 }
