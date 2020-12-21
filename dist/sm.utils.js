@@ -55,7 +55,7 @@ var SMUtils = /** @class */ (function () {
      * @returns the 'projected' FaceNumber of the position requested.
      */
     SMUtils.getFaceNumber = function (cards, depth) {
-        if (depth === void 0) { depth = 0; }
+        if (depth === void 0) { depth = cards.length - 1; }
         if (depth == 0) {
             if (this.toFaceNumber(cards[depth].cardNo) == enums_1.CardsEnum.JOKER) {
                 return enums_1.CardsEnum.ACE;
@@ -125,7 +125,7 @@ var SMUtils = /** @class */ (function () {
             }
         }
         var diff = (c1 - c2);
-        console.log("p1[" + p1 + "]:" + c1 + ",p2[" + p2 + "]:" + c2 + " diff:" + diff);
+        // console.log(`p1[${p1}]:${c1},p2[${p2}]:${c2} diff:${diff}`);
         return diff;
     };
     return SMUtils;
