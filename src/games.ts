@@ -179,6 +179,7 @@ export class Game implements IGameModel{
     switchPlayer(){
         this.activePlayer=(this.activePlayer==0?1:0);
     }
-    outOfCards(){}
+    outOfCards():boolean{
+        return (this.cards[PositionsEnum.DECK].length==0 && this.cards[PositionsEnum.RECYCLE].length==0)
+    }
 }
-
