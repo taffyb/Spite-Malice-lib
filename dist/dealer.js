@@ -57,7 +57,6 @@ var Dealer = /** @class */ (function () {
     };
     Dealer.prototype.recycle = function (game) {
         /*
-        If the deck has run out of cards,
         shuffle the recycle pile and add them back into the deck.
         */
         console.log("*** Recycle Discard pile ***");
@@ -69,16 +68,17 @@ var Dealer = /** @class */ (function () {
     };
     Dealer.prototype.dealNextCard = function (game) {
         var nextCard;
+        // if deck is empty recycle
         if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
             this.recycle(game);
         }
+        //if deck is still empty 
         if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
+            game.state = enums_1.GameStatesEnum.DRAW;
             throw Error;
         }
+        //take the top card on the deck
         nextCard = game.getCards(enums_1.PositionsEnum.DECK).pop();
-        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
-            this.recycle(game);
-        }
         return nextCard;
     };
     return Dealer;

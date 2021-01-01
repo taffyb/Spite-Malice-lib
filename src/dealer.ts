@@ -1,7 +1,7 @@
 import {Game} from './games';
 import {ICardModel, Card} from './cards';
 import {IMoveModel, Move} from './moves';
-import {PositionsEnum, CardsEnum, PlayerPositionsEnum, MoveTypesEnum} from './enums';
+import {PositionsEnum, CardsEnum, PlayerPositionsEnum, MoveTypesEnum, GameStatesEnum} from './enums';
 
 export class Dealer{
     getDeck():number[]{
@@ -57,7 +57,6 @@ export class Dealer{
      }
     protected recycle(game:Game){
         /* 
-        If the deck has run out of cards, 
         shuffle the recycle pile and add them back into the deck.
         */
         console.log(`*** Recycle Discard pile ***`);
@@ -68,17 +67,17 @@ export class Dealer{
     }
     protected dealNextCard(game:Game):Card{
         let nextCard:Card;
+        // if deck is empty recycle
         if(game.getCards(PositionsEnum.DECK).length==0){
             this.recycle(game);
         }
+        //if deck is still empty 
         if(game.getCards(PositionsEnum.DECK).length==0){
+            game.state=GameStatesEnum.DRAW;
             throw Error;
         }
-        
+        //take the top card on the deck
         nextCard= game.getCards(PositionsEnum.DECK).pop();
-        if(game.getCards(PositionsEnum.DECK).length==0){
-            this.recycle(game);
-        }
         return nextCard;
     }
 }
