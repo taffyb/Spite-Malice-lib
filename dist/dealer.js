@@ -60,11 +60,12 @@ var Dealer = /** @class */ (function () {
         shuffle the recycle pile and add them back into the deck.
         */
         console.log("*** Recycle Discard pile ***");
+        console.log("Recycle size:" + game.cards[enums_1.PositionsEnum.RECYCLE].length + " Deck size:" + game.cards[enums_1.PositionsEnum.DECK].length);
         for (var i = game.cards[enums_1.PositionsEnum.RECYCLE].length - 1; i >= 0; i--) {
             game.cards[enums_1.PositionsEnum.DECK].push(game.cards[enums_1.PositionsEnum.RECYCLE].pop());
         }
-        ;
         this.shuffle(game.cards[enums_1.PositionsEnum.DECK]);
+        console.log("Recycle size:" + game.cards[enums_1.PositionsEnum.RECYCLE].length + " Deck size:" + game.cards[enums_1.PositionsEnum.DECK].length);
     };
     Dealer.prototype.dealNextCard = function (game) {
         var nextCard;
