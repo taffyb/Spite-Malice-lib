@@ -28,7 +28,7 @@ export class Dealer{
         const HAND_1 = PositionsEnum.PLAYER_HAND_1+(activePlayer*PlayerPositionsEnum.PLAYER_2);
         const HAND_5 = PositionsEnum.PLAYER_HAND_5+(activePlayer*PlayerPositionsEnum.PLAYER_2);
         for(let i=HAND_1;i<=HAND_5;i++){
-            if(game.getCards(i).length==0){
+            if(game.cards[i].length==0){
                 let nextCard:Card;
                 try{
                     nextCard= this.dealNextCard(game);
@@ -60,24 +60,24 @@ export class Dealer{
         shuffle the recycle pile and add them back into the deck.
         */
         console.log(`*** Recycle Discard pile ***`);
-        for(let i=game.getCards(PositionsEnum.RECYCLE).length-1;i>=0;i--){
-            game.getCards(PositionsEnum.DECK).push(game.getCards(PositionsEnum.RECYCLE).pop());
+        for(let i=game.cards[PositionsEnum.RECYCLE].length-1;i>=0;i--){
+            game.cards[PositionsEnum.DECK].push(game.cards[PositionsEnum.RECYCLE].pop());
         };
-        this.shuffle<Card>(game.getCards(PositionsEnum.DECK));
+        this.shuffle<Card>(game.cards[PositionsEnum.DECK]);
     }
     protected dealNextCard(game:Game):Card{
         let nextCard:Card;
         // if deck is empty recycle
-        if(game.getCards(PositionsEnum.DECK).length==0){
+        if(game.cards[PositionsEnum.DECK].length==0){
             this.recycle(game);
         }
         //if deck is still empty 
-        if(game.getCards(PositionsEnum.DECK).length==0){
+        if(game.cards[PositionsEnum.DECK].length==0){
             game.state=GameStatesEnum.DRAW;
             throw Error;
         }
         //take the top card on the deck
-        nextCard= game.getCards(PositionsEnum.DECK).pop();
+        nextCard= game.cards[PositionsEnum.DECK].pop();
         return nextCard;
     }
 }

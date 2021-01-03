@@ -28,7 +28,7 @@ var Dealer = /** @class */ (function () {
         var HAND_1 = enums_1.PositionsEnum.PLAYER_HAND_1 + (activePlayer * enums_1.PlayerPositionsEnum.PLAYER_2);
         var HAND_5 = enums_1.PositionsEnum.PLAYER_HAND_5 + (activePlayer * enums_1.PlayerPositionsEnum.PLAYER_2);
         for (var i = HAND_1; i <= HAND_5; i++) {
-            if (game.getCards(i).length == 0) {
+            if (game.cards[i].length == 0) {
                 var nextCard = void 0;
                 try {
                     nextCard = this.dealNextCard(game);
@@ -60,25 +60,25 @@ var Dealer = /** @class */ (function () {
         shuffle the recycle pile and add them back into the deck.
         */
         console.log("*** Recycle Discard pile ***");
-        for (var i = game.getCards(enums_1.PositionsEnum.RECYCLE).length - 1; i >= 0; i--) {
-            game.getCards(enums_1.PositionsEnum.DECK).push(game.getCards(enums_1.PositionsEnum.RECYCLE).pop());
+        for (var i = game.cards[enums_1.PositionsEnum.RECYCLE].length - 1; i >= 0; i--) {
+            game.cards[enums_1.PositionsEnum.DECK].push(game.cards[enums_1.PositionsEnum.RECYCLE].pop());
         }
         ;
-        this.shuffle(game.getCards(enums_1.PositionsEnum.DECK));
+        this.shuffle(game.cards[enums_1.PositionsEnum.DECK]);
     };
     Dealer.prototype.dealNextCard = function (game) {
         var nextCard;
         // if deck is empty recycle
-        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
+        if (game.cards[enums_1.PositionsEnum.DECK].length == 0) {
             this.recycle(game);
         }
         //if deck is still empty 
-        if (game.getCards(enums_1.PositionsEnum.DECK).length == 0) {
+        if (game.cards[enums_1.PositionsEnum.DECK].length == 0) {
             game.state = enums_1.GameStatesEnum.DRAW;
             throw Error;
         }
         //take the top card on the deck
-        nextCard = game.getCards(enums_1.PositionsEnum.DECK).pop();
+        nextCard = game.cards[enums_1.PositionsEnum.DECK].pop();
         return nextCard;
     };
     return Dealer;
