@@ -61,7 +61,7 @@ var SMUtils = /** @class */ (function () {
                 return enums_1.CardsEnum.ACE;
             }
             else {
-                return cards[depth].cardNo;
+                return this.toFaceNumber(cards[depth].cardNo);
             }
         }
         else {

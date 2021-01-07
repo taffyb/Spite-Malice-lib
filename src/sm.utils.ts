@@ -55,7 +55,7 @@ export class SMUtils{
           if(this.toFaceNumber(cards[depth].cardNo)==CardsEnum.JOKER){
               return CardsEnum.ACE;
           }else{
-              return cards[depth].cardNo;
+              return this.toFaceNumber(cards[depth].cardNo);
           }          
       }else{
           let faceNumber:number=this.toFaceNumber(cards[depth].cardNo);
