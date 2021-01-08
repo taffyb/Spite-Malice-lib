@@ -33,7 +33,7 @@ export class Dealer{
                 try{
                     nextCard= this.dealNextCard(game);
                 }catch(e){
-                    game.outOfCards();
+                    game.setOutOfCards();
                 }
                 c++;
                 let move = new Move();
@@ -75,7 +75,6 @@ export class Dealer{
         }
         //if deck is still empty 
         if(game.cards[PositionsEnum.DECK].length==0){
-            game.state=GameStatesEnum.DRAW;
             throw Error;
         }
         //take the top card on the deck

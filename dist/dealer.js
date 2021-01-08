@@ -34,7 +34,7 @@ var Dealer = /** @class */ (function () {
                     nextCard = this.dealNextCard(game);
                 }
                 catch (e) {
-                    game.outOfCards();
+                    game.setOutOfCards();
                 }
                 c++;
                 var move = new moves_1.Move();
@@ -75,7 +75,6 @@ var Dealer = /** @class */ (function () {
         }
         //if deck is still empty 
         if (game.cards[enums_1.PositionsEnum.DECK].length == 0) {
-            game.state = enums_1.GameStatesEnum.DRAW;
             throw Error;
         }
         //take the top card on the deck
