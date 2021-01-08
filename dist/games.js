@@ -164,8 +164,7 @@ var Game = /** @class */ (function () {
     Game.prototype.switchPlayer = function () {
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
     };
-    Game.prototype.outOfCards = function () {
-        return (this.cards[enums_1.PositionsEnum.DECK].length == 0 && this.cards[enums_1.PositionsEnum.RECYCLE].length == 0);
+    Game.prototype.setOutOfCards = function () {
     };
     return Game;
 }());
