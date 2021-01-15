@@ -77,7 +77,7 @@ var Dealer = /** @class */ (function () {
         if (game.cards[enums_1.PositionsEnum.DECK].length == 0) {
             throw Error;
         }
-        //take the top card on the deck
+        //return the top card on the deck but don't remove it as that will happen when the move is applied
         nextCard = game.cards[enums_1.PositionsEnum.DECK].pop();
         return nextCard;
     };

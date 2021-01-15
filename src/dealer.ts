@@ -77,7 +77,7 @@ export class Dealer{
         if(game.cards[PositionsEnum.DECK].length==0){
             throw Error;
         }
-        //take the top card on the deck
+        //return the top card on the deck but don't remove it as that will happen when the move is applied
         nextCard= game.cards[PositionsEnum.DECK].pop();
         return nextCard;
     }
