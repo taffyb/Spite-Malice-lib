@@ -32,17 +32,17 @@ export class Dealer{
                 let nextCard:Card;
                 try{
                     nextCard= this.dealNextCard(game);
+                    c++;
+                    let move = new Move();
+                    
+                    move.type=MoveTypesEnum.DEALER;
+                    move.from=PositionsEnum.DECK;
+                    move.card=nextCard.cardNo;
+                    move.to=i;
+                    moves.push(move);  
                 }catch(e){
-                    game.setOutOfCards();
-                }
-                c++;
-                let move = new Move();
-                
-                move.type=MoveTypesEnum.DEALER;
-                move.from=PositionsEnum.DECK;
-                move.card=nextCard.cardNo;
-                move.to=i;
-                moves.push(move);              
+                    game.setOutOfCards();                
+                }            
             }          
         }
         return moves;

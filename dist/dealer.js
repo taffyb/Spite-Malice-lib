@@ -32,17 +32,17 @@ var Dealer = /** @class */ (function () {
                 var nextCard = void 0;
                 try {
                     nextCard = this.dealNextCard(game);
+                    c++;
+                    var move = new moves_1.Move();
+                    move.type = enums_1.MoveTypesEnum.DEALER;
+                    move.from = enums_1.PositionsEnum.DECK;
+                    move.card = nextCard.cardNo;
+                    move.to = i;
+                    moves.push(move);
                 }
                 catch (e) {
                     game.setOutOfCards();
                 }
-                c++;
-                var move = new moves_1.Move();
-                move.type = enums_1.MoveTypesEnum.DEALER;
-                move.from = enums_1.PositionsEnum.DECK;
-                move.card = nextCard.cardNo;
-                move.to = i;
-                moves.push(move);
             }
         }
         return moves;

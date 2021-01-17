@@ -165,6 +165,7 @@ var Game = /** @class */ (function () {
         this.activePlayer = (this.activePlayer == 0 ? 1 : 0);
     };
     Game.prototype.setOutOfCards = function () {
+        this.state = enums_1.GameStatesEnum.DRAW;
     };
     return Game;
 }());

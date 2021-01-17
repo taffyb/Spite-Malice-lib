@@ -180,6 +180,6 @@ export class Game implements IGameModel{
         this.activePlayer=(this.activePlayer==0?1:0);
     }
     setOutOfCards(){
-        
+        this.state=GameStatesEnum.DRAW;
     }
 }
