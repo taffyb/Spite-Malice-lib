@@ -59,9 +59,8 @@ var Dealer = /** @class */ (function () {
         /*
         shuffle the recycle pile and add them back into the deck.
         */
-        for (var i = game.cards[enums_1.PositionsEnum.RECYCLE].length - 1; i >= 0; i--) {
-            game.cards[enums_1.PositionsEnum.DECK].push(game.cards[enums_1.PositionsEnum.RECYCLE].pop());
-        }
+        var recyclePile = game.cards[enums_1.PositionsEnum.RECYCLE];
+        game.cards[enums_1.PositionsEnum.DECK] = recyclePile.splice(0, recyclePile.length);
         this.shuffle(game.cards[enums_1.PositionsEnum.DECK]);
     };
     Dealer.prototype.dealNextCard = function (game) {
