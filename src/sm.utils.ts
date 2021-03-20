@@ -1,5 +1,5 @@
 import {PositionsEnum, PlayerPositionsEnum, CardsEnum} from './enums';
-import {ICardModel} from './cards';
+import {ICardModel, Card} from './cards';
 
 export class SMUtils{
     constructor(){}

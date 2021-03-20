@@ -1,9 +1,42 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var enums_1 = require("./enums");
+var cards_1 = require("./cards");
 var SMUtils = /** @class */ (function () {
     function SMUtils() {
     }
+    /**
+     * intArr2CardArr
+     * Converts a two dimensional array of Integers to a two dimensional array of ICardModel
+     * @param inArr number[][]
+     * @returns ICardModel[][]
+     */
+    SMUtils.intArr2CardArr = function (inArr) {
+        var cards = [];
+        for (var pos = enums_1.PositionsEnum.PLAYER_PILE; pos <= enums_1.PositionsEnum.RECYCLE; pos++) {
+            cards.push([]);
+            for (var c = 0; c < inArr[pos].length; c++) {
+                cards[pos].push(new cards_1.Card(inArr[pos][c], pos));
+            }
+        }
+        return cards;
+    };
+    /**
+     * cardArr2IntArr
+     * Converts a two dimensional array of ICardModel to a two dimensional array of Integers
+     * @param inArr ICardModel[][]
+     * @returns number[][]
+     */
+    SMUtils.cardArr2IntArr = function (inArr) {
+        var cards = [];
+        for (var pos = enums_1.PositionsEnum.PLAYER_PILE; pos <= enums_1.PositionsEnum.RECYCLE; pos++) {
+            cards.push([]);
+            for (var c = 0; c < inArr[pos].length; c++) {
+                cards[pos].push(inArr[pos][c].cardNo);
+            }
+        }
+        return cards;
+    };
     /**
      * @description converts a cardNo into a FaceNumber.
      * A value between 1 and 13. Where 1=ACE and 13=KING. See CardsEnum for FaceNumbers

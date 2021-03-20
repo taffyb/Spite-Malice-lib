@@ -2,6 +2,20 @@ import { ICardModel } from './cards';
 export declare class SMUtils {
     constructor();
     /**
+     * intArr2CardArr
+     * Converts a two dimensional array of Integers to a two dimensional array of ICardModel
+     * @param inArr number[][]
+     * @returns ICardModel[][]
+     */
+    static intArr2CardArr(inArr: number[][]): ICardModel[][];
+    /**
+     * cardArr2IntArr
+     * Converts a two dimensional array of ICardModel to a two dimensional array of Integers
+     * @param inArr ICardModel[][]
+     * @returns number[][]
+     */
+    static cardArr2IntArr(inArr: ICardModel[][]): number[][];
+    /**
      * @description converts a cardNo into a FaceNumber.
      * A value between 1 and 13. Where 1=ACE and 13=KING. See CardsEnum for FaceNumbers
      * @param cardNo index number of the card
