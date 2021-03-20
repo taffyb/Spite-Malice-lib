@@ -3,6 +3,45 @@ import {ICardModel} from './cards';
 
 export class SMUtils{
     constructor(){}
+
+    
+    /**
+     * intArr2CardArr
+     * Converts a two dimensional array of Integers to a two dimensional array of ICardModel
+     * @param inArr number[][]
+     * @returns ICardModel[][]
+     */
+     static intArr2CardArr(inArr:number[][]):ICardModel[][]{
+        
+        const cards:ICardModel[][]=[];
+
+        for(let pos:number=PositionsEnum.PLAYER_PILE;pos<=PositionsEnum.RECYCLE;pos++){
+            cards.push([]);
+            for(let c:number=0;c<inArr[pos].length;c++){
+                cards[pos].push(new Card(inArr[pos][c],pos));
+            }
+        }
+        return cards;
+    }
+    
+    /**
+     * cardArr2IntArr
+     * Converts a two dimensional array of ICardModel to a two dimensional array of Integers
+     * @param inArr ICardModel[][]
+     * @returns number[][]
+     */
+    static cardArr2IntArr(inArr:ICardModel[][]):number[][]{
+        const cards:number[][]=[];
+
+        for(let pos:number=PositionsEnum.PLAYER_PILE;pos<=PositionsEnum.RECYCLE;pos++){
+            cards.push([]);
+            for(let c:number=0;c<inArr[pos].length;c++){
+                cards[pos].push(inArr[pos][c].cardNo);
+            }
+        }
+
+        return cards;
+    }
     /**
      * @description converts a cardNo into a FaceNumber. 
      * A value between 1 and 13. Where 1=ACE and 13=KING. See CardsEnum for FaceNumbers
