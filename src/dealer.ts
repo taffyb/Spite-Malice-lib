@@ -60,7 +60,10 @@ export class Dealer{
         shuffle the recycle pile and add them back into the deck.
         */
         const recyclePile:ICardModel[] = game.cards[PositionsEnum.RECYCLE];
-        game.cards[PositionsEnum.DECK]=recyclePile.splice(0,recyclePile.length);
+        recyclePile.forEach(c=>{
+            game.cards[PositionsEnum.DECK].push(c);
+        });
+        recyclePile.splice(0,recyclePile.length);
         this.shuffle<Card>(game.cards[PositionsEnum.DECK]);
     }
     protected dealNextCard(game:Game):Card{
